@@ -1,4 +1,5 @@
 Django Expense Tracker
+
 A simple yet powerful Expense Tracker web application built using Django. This app allows users to register, log in, add and categorize their expenses, and view insightful summaries including total yearly spending and category-wise breakdowns with visual charts.
 
 Key Features
