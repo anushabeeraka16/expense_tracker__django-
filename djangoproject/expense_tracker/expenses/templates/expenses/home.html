@@ -1,0 +1,50 @@
+{% extends 'expenses/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Section with Gradient Background -->
+<div class="container-fluid text-center py-5" style="background: linear-gradient(to right, #c2e9fb, #a1c4fd);">
+    <div class="container">
+        <h1 class="display-4 fw-bold text-dark">Welcome to Your Expense Tracker</h1>
+        <p class="lead mt-3 mb-4 text-dark">
+            Track your monthly and yearly expenses effortlessly. Stay in control of your finances with real-time insights and beautiful visualizations.
+        </p>
+        <a href="{% url 'add_expense' %}" class="btn btn-primary btn-lg me-3">Add Expense</a>
+        <a href="{% url 'expenses' %}" class="btn btn-outline-dark btn-lg">View Expenses</a>
+    </div>
+</div>
+
+<!-- Feature Highlights -->
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-pie-chart display-5 text-primary mb-3"></i>
+                    <h5 class="card-title">Visual Reports</h5>
+                    <p class="card-text">Get a category-wise breakdown of your spending with intuitive pie charts and summary cards.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-wallet2 display-5 text-success mb-3"></i>
+                    <h5 class="card-title">Smart Tracking</h5>
+                    <p class="card-text">Track expenses monthly and yearly, filter by category, and understand where your money goes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-lock display-5 text-danger mb-3"></i>
+                    <h5 class="card-title">Secure & Private</h5>
+                    <p class="card-text">Your data is stored securely and only accessible by you. Your privacy is our priority.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'expenses/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Gradient Background -->
+<div class="container-fluid py-5" style="background: linear-gradient(to right, #fdfbfb, #ebedee); min-height: 100vh;">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg border-0 p-4" style="max-width: 600px; width: 100%;">
+            <h3 class="text-center mb-4 text-primary">
+                <i class="bi bi-plus-circle me-2"></i>Add New Expense
+            </h3>
+            <form method="POST" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" name="amount" class="form-control" id="amount" step="0.01" required>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" name="date" class="form-control" id="date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" class="form-select" id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Add Expense</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

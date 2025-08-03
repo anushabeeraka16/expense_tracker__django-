@@ -1,0 +1,56 @@
+<!-- templates/expense/monthly_expenses.html -->
+{% extends 'expenses/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Monthly Expense Report</h2>
+    
+    <form method="POST" class="row g-3 mb-4">
+        {% csrf_token %}
+        <div class="col-md-4">
+            <label for="month" class="form-label">Month</label>
+            <select name="month" id="month" class="form-select" required>
+                {% for m in months %}
+                    <option value="{{ m }}" {% if m == selected_month %}selected{% endif %}>{{ m }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="year" class="form-label">Year</label>
+            <select name="year" id="year" class="form-select" required>
+                {% for y in years %}
+                    <option value="{{ y }}" {% if y == selected_year %}selected{% endif %}>{{ y }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Get Report</button>
+        </div>
+    </form>
+
+    {% if expenses %}
+        <h4>Total: ₹{{ total }}</h4>
+        <table class="table table-bordered mt-3">
+            <thead class="table-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                    <tr>
+                        <td>{{ expense.title }}</td>
+                        <td>{{ expense.category }}</td>
+                        <td>{{ expense.price }}</td>
+                        <td>{{ expense.date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+{% endblock %}
