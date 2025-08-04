@@ -27,7 +27,7 @@ Technologies Used
 Setup Instructions
 1.	Clone the Repository
    
-git clone https://github.com/your-username/expense-tracker.git
+git clone https://github.com/anushabeeraka16/expense-tracker.git
 cd expense-tracker  
 
 2.	Create and Activate Virtual Environment
